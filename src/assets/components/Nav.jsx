@@ -6,7 +6,7 @@ export default function Nav() {
         
         <div><a href="/"><img src={logo} alt='logo' className='object-cover w-full' /></a></div>
         <div className=' text-purple-400 '>
-          <ul className='flex gap-5 justify-center'>
+          <ul className='md:flex gap-5 justify-center hidden'>
             <li>
               <a className='bg-transparent hover:bg-primary text-primary hover:text-white py-2 px-4 border border-primary hover:border-transparent rounded-lg ease-in duration-300' href='#'>Home</a>
             </li>

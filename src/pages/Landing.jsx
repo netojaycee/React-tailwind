@@ -1,13 +1,38 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Nav from '../assets/components/Nav'
 import android from '../assets/images/google-play.svg'
 import apple from '../assets/images/apple-store.svg'
-import facebook from '../assets/images/facebook.svg'
+// import facebook from '../assets/images/facebook.svg'
+import Footer from '../assets/components/Footer'
+// import { Helmet } from 'react-helmet';
+
+const useScript = url => {
+  useEffect(() => {
+    const script = document.createElement('script');
+
+    script.src = url;
+    script.async = true;
+
+    document.body.appendChild(script);
+
+    return () => {
+      document.body.removeChild(script);
+    }
+  }, [url]);
+};
 
 export default function Landing() {
+  // const apiKey = process.env.REACT_APP_API_KEY;
+
+  const scriptUrl = "https://cdn.jsdelivr.net/gh/maro-okegbero/mhapy-widget@v1.0.6/embed.js?api_key=d7873832749d4aa468150284206d7997ee64662992bfa05926ec4df6bd6522ec";
+
+  // Use the useScript hook to dynamically add the script to the body
+  useScript(scriptUrl);
+ 
+
   return (
     <>
-    <div className='overflow-x-hidden'>
+    <div className='overflow-x-hidden h-screen'>
       
       <Nav />
       <div className='items-center w-[75%] text-center mx-auto  '>
@@ -24,37 +49,10 @@ export default function Landing() {
         </div>
         </div>
 
-        <div className='bg-primary w-[97%] items-center justify-center text-center h-[40vh] md:mt-[150px] mt-[75px] mx-auto rounded-lg '>
-        <div className=''>
-          <div className='flex'>
-          <div>
-          <ul className='flex gap-5 text-white py-[40px] px-[40px] '>
-            <li>
-              <a>Privacy Policy</a>
-            </li>
-            <li>
-              <a>Demo</a>
-            </li>
-            <li>
-              <a>Ruby API Licence</a>
-            </li>
-            </ul>
-          </div>
-          <div className='flex gap 10'>
-            <img src='../assests/images/bottom-andriod-icon.svg'/>
-            <img src='../assests/images/bottom-ios-icon.svg'/>
-          </div>
+        <div className=" mx-auto px-16 mt-10 justify-center items-center w-[90%]">
+          <Footer />
           </div>
           
-          <hr className='w-[90%] mx-auto' />
-          <div>
-            <div>
-
-            </div>
-            <h3 className='text-white py-[30px] '>@2023 mHapy. All Right Reserved</h3>
-          </div>
-        </div>
-      </div>
      
      
     </div>
